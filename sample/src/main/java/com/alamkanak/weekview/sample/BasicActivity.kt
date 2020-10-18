@@ -1,6 +1,5 @@
 package com.alamkanak.weekview.sample
 
-import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -14,6 +13,7 @@ import androidx.lifecycle.ViewModel
 import com.alamkanak.weekview.WeekViewEntity
 import com.alamkanak.weekview.sample.data.EventsDatabase
 import com.alamkanak.weekview.sample.data.model.CalendarEntity
+import com.alamkanak.weekview.sample.util.getThemeColor
 import com.alamkanak.weekview.sample.util.setupWithWeekView
 import com.alamkanak.weekview.sample.util.showToast
 import com.alamkanak.weekview.threetenabp.WeekViewPagingAdapterThreeTenAbp
@@ -131,13 +131,14 @@ private class BasicActivityWeekViewAdapter(
     }
 
     private fun createForEvent(event: CalendarEntity.Event): WeekViewEntity {
-        val backgroundColor = if (!event.isCanceled) event.color else Color.WHITE
-        val textColor = if (!event.isCanceled) Color.WHITE else event.color
+        val surfaceColor = context.getThemeColor(android.R.attr.colorBackground)
+        val fillColor = if (!event.isCanceled) event.color else surfaceColor
+        val textColor = if (!event.isCanceled) surfaceColor else event.color
         val borderWidthResId = if (!event.isCanceled) R.dimen.no_border_width else R.dimen.border_width
 
         val style = WeekViewEntity.Style.Builder()
             .setTextColor(textColor)
-            .setBackgroundColor(backgroundColor)
+            .setBackgroundColor(fillColor)
             .setBorderWidthResource(borderWidthResId)
             .setBorderColor(event.color)
             .build()
