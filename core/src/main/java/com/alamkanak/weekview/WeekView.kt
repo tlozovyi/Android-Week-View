@@ -1376,10 +1376,6 @@ class WeekView @JvmOverloads constructor(
             return true
         }
 
-        internal fun handleEmptyViewClick(time: Calendar) {
-            onEmptyViewClick(time)
-        }
-
         internal fun handleLongClick(x: Float, y: Float): Boolean {
             val eventChip = findHitEvent(x, y) ?: return false
             val data = findEventData(id = eventChip.originalEvent.id) ?: return false
@@ -1388,10 +1384,6 @@ class WeekView @JvmOverloads constructor(
             onEventLongClick(data, eventChip.bounds)
 
             return true
-        }
-
-        internal fun handleEmptyViewLongClick(time: Calendar) {
-            onEmptyViewLongClick(time)
         }
 
         private fun findHitEvent(x: Float, y: Float): EventChip? {
