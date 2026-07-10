@@ -19,6 +19,12 @@ buildscript {
     }
 }
 
+subprojects { subproject ->
+    subproject.afterEvaluate {
+        subproject.apply from: rootProject.file('gradle/jitpack-publish.gradle')
+    }
+}
+
 allprojects {
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
         kotlinOptions {

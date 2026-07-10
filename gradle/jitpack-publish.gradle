@@ -1,0 +1,24 @@
+// Configures maven-publish for JitPack (publishToMavenLocal).
+if (plugins.hasPlugin('com.android.library') && plugins.hasPlugin('maven-publish')) {
+    android {
+        publishing {
+            singleVariant('release') {
+                withSourcesJar()
+            }
+        }
+    }
+
+    def publishVersion = findProperty('version') ?: version
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = group.toString()
+                artifactId = project.name
+                version = publishVersion.toString()
+                afterEvaluate {
+                    from components.release
+                }
+            }
+        }
+    }
+}
