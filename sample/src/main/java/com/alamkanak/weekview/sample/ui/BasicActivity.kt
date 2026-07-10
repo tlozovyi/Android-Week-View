@@ -11,6 +11,7 @@ import com.alamkanak.weekview.sample.data.model.CalendarEntity
 import com.alamkanak.weekview.sample.data.model.toWeekViewEntity
 import com.alamkanak.weekview.sample.databinding.ActivityBasicBinding
 import com.alamkanak.weekview.sample.util.GenericAction.ShowSnackbar
+import com.alamkanak.weekview.sample.util.applySystemBarInsets
 import com.alamkanak.weekview.sample.util.defaultDateTimeFormatter
 import com.alamkanak.weekview.sample.util.genericViewModel
 import com.alamkanak.weekview.sample.util.setupWithWeekView
@@ -38,12 +39,13 @@ class BasicActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        applySystemBarInsets(binding.root)
 
         binding.toolbarContainer.toolbar.setupWithWeekView(binding.weekView)
 
         val adapter = BasicActivityWeekViewAdapter(
             dragHandler = viewModel::handleDrag,
-            loadMoreHandler = viewModel::fetchEvents,
+            loadMoreHandler = viewModel::fetchEvents
         )
         binding.weekView.adapter = adapter
 

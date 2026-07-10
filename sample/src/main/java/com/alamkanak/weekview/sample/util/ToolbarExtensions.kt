@@ -1,4 +1,5 @@
 @file:JvmName("ToolbarUtils")
+
 package com.alamkanak.weekview.sample.util
 
 import android.app.Activity

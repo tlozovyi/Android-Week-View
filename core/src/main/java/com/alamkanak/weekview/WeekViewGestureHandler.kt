@@ -29,7 +29,7 @@ internal class WeekViewGestureHandler(
     private val viewState: ViewState,
     private val touchHandler: WeekViewTouchHandler,
     private val navigator: Navigator,
-    private val dragHandler: DragHandler,
+    private val dragHandler: DragHandler
 ) : GestureDetector.SimpleOnGestureListener() {
 
     private var scrollDirection: Direction = None
@@ -38,7 +38,7 @@ internal class WeekViewGestureHandler(
     private val scaleDetector = ScaleGestureDetector(
         context = context,
         viewState = viewState,
-        navigator = navigator,
+        navigator = navigator
     )
 
     private val gestureDetector = GestureDetector(context, this)
@@ -53,7 +53,7 @@ internal class WeekViewGestureHandler(
     }
 
     override fun onScroll(
-        e1: MotionEvent,
+        e1: MotionEvent?,
         e2: MotionEvent,
         distanceX: Float,
         distanceY: Float,
@@ -98,7 +98,7 @@ internal class WeekViewGestureHandler(
     }
 
     override fun onFling(
-        e1: MotionEvent,
+        e1: MotionEvent?,
         e2: MotionEvent,
         velocityX: Float,
         velocityY: Float

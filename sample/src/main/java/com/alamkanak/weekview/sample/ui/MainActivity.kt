@@ -12,6 +12,7 @@ import com.alamkanak.weekview.sample.R
 import com.alamkanak.weekview.sample.databinding.ActivityMainBinding
 import com.alamkanak.weekview.sample.databinding.ListItemSampleBinding
 import com.alamkanak.weekview.sample.util.EqualSpacingItemDecoration
+import com.alamkanak.weekview.sample.util.applySystemBarInsets
 import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        applySystemBarInsets(binding.root)
         setSupportActionBar(binding.toolbarContainer.toolbar)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)

@@ -4,7 +4,7 @@ import java.util.Calendar
 
 internal data class LongClickResult(
     val eventChip: EventChip,
-    val handled: Boolean,
+    val handled: Boolean
 )
 
 internal class WeekViewTouchHandler(

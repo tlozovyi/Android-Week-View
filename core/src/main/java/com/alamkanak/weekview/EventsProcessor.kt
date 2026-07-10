@@ -16,7 +16,7 @@ internal class EventsProcessor(
     private val eventChipsFactory: EventChipsFactory,
     private val eventChipsCache: EventChipsCache,
     private val backgroundExecutor: Executor = Executors.newSingleThreadExecutor(),
-    private val mainThreadExecutor: Executor = ContextCompat.getMainExecutor(context),
+    private val mainThreadExecutor: Executor = ContextCompat.getMainExecutor(context)
 ) {
 
     /**
@@ -68,7 +68,7 @@ internal class EventsProcessor(
 
     private fun submitEntitiesToSimpleCache(
         entities: List<ResolvedWeekViewEntity>,
-        viewState: ViewState,
+        viewState: ViewState
     ) {
         val eventChips = eventChipsFactory.create(entities, viewState)
         eventChipsCache.replaceAll(eventChips)
@@ -76,7 +76,7 @@ internal class EventsProcessor(
 
     private fun submitEntitiesToPagedCache(
         entities: List<ResolvedWeekViewEntity>,
-        viewState: ViewState,
+        viewState: ViewState
     ) {
         val diffResult = performDiff(entities)
         eventChipsCache.removeAll(diffResult.itemsToRemove)
@@ -90,18 +90,18 @@ internal class EventsProcessor(
         val existingEntities = existingEventChips.map { it.event }
         return DiffResult.calculateDiff(
             existingEntities = existingEntities,
-            newEntities = newEntities,
+            newEntities = newEntities
         )
     }
 
     data class DiffResult(
         val itemsToAddOrUpdate: List<ResolvedWeekViewEntity>,
-        val itemsToRemove: List<ResolvedWeekViewEntity>,
+        val itemsToRemove: List<ResolvedWeekViewEntity>
     ) {
         companion object {
             fun calculateDiff(
                 existingEntities: List<ResolvedWeekViewEntity>,
-                newEntities: List<ResolvedWeekViewEntity>,
+                newEntities: List<ResolvedWeekViewEntity>
             ): DiffResult {
                 val existingEntityIds = existingEntities.map { it.id }
 
@@ -114,7 +114,7 @@ internal class EventsProcessor(
 
                 return DiffResult(
                     itemsToAddOrUpdate = addedEvents + changed,
-                    itemsToRemove = deletedEvents,
+                    itemsToRemove = deletedEvents
                 )
             }
         }

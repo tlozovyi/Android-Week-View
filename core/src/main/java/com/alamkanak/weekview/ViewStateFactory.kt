@@ -9,6 +9,7 @@ import android.os.Build
 import android.util.AttributeSet
 import android.util.TypedValue
 import androidx.annotation.AttrRes
+import androidx.appcompat.R as AppCompatR
 import androidx.core.graphics.ColorUtils
 import androidx.core.view.ViewCompat.LAYOUT_DIRECTION_LTR
 import kotlin.math.roundToInt
@@ -261,7 +262,7 @@ private fun Context.resolveColor(@AttrRes resourceId: Int, alpha: Double = 1.0):
 }
 
 private val Context.colorAccent: Int
-    get() = resolveColor(R.attr.colorAccent)
+    get() = resolveColor(AppCompatR.attr.colorAccent)
 
 private val Context.lineColor: Int
     get() = resolveColor(android.R.attr.textColorTertiary, alpha = 0.1)

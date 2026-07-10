@@ -49,7 +49,7 @@ class GenericViewModel(
 
         val newEntity = existingEntity.copy(
             startTime = newStartTime,
-            endTime = newEndTime,
+            endTime = newEndTime
         )
 
         updateEntity(newEntity)
@@ -58,13 +58,13 @@ class GenericViewModel(
 
     private fun postDragNotification(
         existingEntity: CalendarEntity.Event,
-        updatedEntity: CalendarEntity.Event,
+        updatedEntity: CalendarEntity.Event
     ) {
         val newDateTime = updatedEntity.startTime.format(DateTimeFormatter.ofLocalizedDateTime(MEDIUM))
 
         val action = GenericAction.ShowSnackbar(
             message = "Moved ${updatedEntity.title} to $newDateTime",
-            undoAction = { updateEntity(existingEntity) },
+            undoAction = { updateEntity(existingEntity) }
         )
         _actions.postEvent(action)
     }

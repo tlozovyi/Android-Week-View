@@ -12,7 +12,7 @@ internal data class EventChip(
     val event: ResolvedWeekViewEntity,
     val index: Int,
     val startTime: Calendar,
-    val endTime: Calendar,
+    val endTime: Calendar
 ) {
 
     /**

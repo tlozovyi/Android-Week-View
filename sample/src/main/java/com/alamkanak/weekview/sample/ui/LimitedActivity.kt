@@ -9,6 +9,7 @@ import com.alamkanak.weekview.jsr310.minDateAsLocalDate
 import com.alamkanak.weekview.sample.data.model.CalendarEntity
 import com.alamkanak.weekview.sample.data.model.toWeekViewEntity
 import com.alamkanak.weekview.sample.databinding.ActivityLimitedBinding
+import com.alamkanak.weekview.sample.util.applySystemBarInsets
 import com.alamkanak.weekview.sample.util.defaultDateTimeFormatter
 import com.alamkanak.weekview.sample.util.genericViewModel
 import com.alamkanak.weekview.sample.util.setupWithWeekView
@@ -33,6 +34,7 @@ class LimitedActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        applySystemBarInsets(binding.root)
 
         binding.toolbarContainer.toolbar.setupWithWeekView(binding.weekView)
         binding.weekView.minDateAsLocalDate = YearMonth.now().atDay(1)

@@ -13,7 +13,7 @@ internal class DragHandler(
     private val eventsCacheProvider: EventsCacheProvider,
     private val navigator: Navigator,
     private val dragListener: (Long) -> Unit,
-    private val eventsProcessorProvider: () -> EventsProcessor?,
+    private val eventsProcessorProvider: () -> EventsProcessor?
 ) {
 
     private val executor = DragScrollExecutor()
@@ -32,7 +32,7 @@ internal class DragHandler(
         viewState.dragState = DragState(
             eventId = eventChip.eventId,
             draggedEventStartTime = eventChip.event.startTime,
-            dragStartTime = requireNotNull(touchHandler.calculateTimeFromPoint(x, y)),
+            dragStartTime = requireNotNull(touchHandler.calculateTimeFromPoint(x, y))
         )
 
         navigator.requestInvalidation()
@@ -60,7 +60,7 @@ internal class DragHandler(
     }
 
     private fun calculateNewEventStart(
-        currentDragLocation: Calendar,
+        currentDragLocation: Calendar
     ): Calendar {
         val dragState = requireNotNull(viewState.dragState)
         val delta = currentDragLocation minutesUntil dragState.dragStartTime
@@ -68,7 +68,7 @@ internal class DragHandler(
     }
 
     private fun sanitizeEventStart(
-        rawEventStart: Calendar,
+        rawEventStart: Calendar
     ): Calendar {
         val minutesBeyondQuarterHour = rawEventStart.minute % 15
         val minutesUntilNextQuarterHour = 15 - minutesBeyondQuarterHour
@@ -86,7 +86,7 @@ internal class DragHandler(
         val originalEvent = draggedEvent ?: return
         val updatedEvent = originalEvent.createCopy(
             startTime = newStartTime,
-            endTime = newStartTime.plusMinutes(originalEvent.durationInMinutes),
+            endTime = newStartTime.plusMinutes(originalEvent.durationInMinutes)
         )
 
         val eventsProcessor = eventsProcessorProvider() ?: return

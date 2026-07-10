@@ -155,7 +155,7 @@ private class DateLabelsDrawer(
 
         withTranslation(
             x = bounds.centerX(),
-            y = viewState.headerPadding,
+            y = viewState.headerPadding
         ) {
             draw(textLayout)
         }
@@ -175,7 +175,7 @@ private class DateLabelsDrawer(
 
         withTranslation(
             x = startPixel + viewState.dayWidth / 2f,
-            y = viewState.headerPadding,
+            y = viewState.headerPadding
         ) {
             draw(textLayout)
         }

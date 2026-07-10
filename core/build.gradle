@@ -4,10 +4,11 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.github.thellmund.Android-Week-View'
-version = '5.3.0'
+group = 'com.github.tlozovyi.Android-Week-View'
+version = '5.4.0'
 
 android {
+    namespace 'com.alamkanak.weekview'
     compileSdkVersion buildConfig.compileSdk
     defaultConfig {
         minSdkVersion buildConfig.minSdk

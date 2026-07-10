@@ -14,7 +14,7 @@ internal object MockFactory {
     fun resolvedWeekViewEntity(
         startTime: Calendar = Calendar.getInstance(),
         endTime: Calendar = Calendar.getInstance().plusHours(1),
-        isAllDay: Boolean = false,
+        isAllDay: Boolean = false
     ): ResolvedWeekViewEntity.Event<Event> {
         val id = Random.nextLong()
         return ResolvedWeekViewEntity.Event(
@@ -25,7 +25,7 @@ internal object MockFactory {
             subtitle = null,
             isAllDay = isAllDay,
             style = ResolvedWeekViewEntity.Style(),
-            data = Event(startTime, endTime),
+            data = Event(startTime, endTime)
         )
     }
 }

@@ -1,6 +1,24 @@
 Changelog
 =========
 
+## Version 5.4.0
+*(2026-07-10)*
+
+- **Breaking**: Removed deprecated `goToToday()`, `goToCurrentTime()`, `goToDate()`, and `goToHour()`. Use `scrollToDate()`, `scrollToTime()`, and `scrollToDateTime()` instead.
+- **Breaking**: Removed `WeekViewEvent`, `WeekViewDisplayable`, and `adapter.submit()`. Use `WeekViewEntity` and `adapter.submitList()` instead.
+- **Breaking**: Removed `DateTimeInterpreter`, `dateTimeInterpreter`, and `WeekView.enableEmojiProcessing()`.
+- **Breaking**: Removed unused scrolling properties `xScrollingSpeed`, `isVerticalFlingEnabled`, `isHorizontalFlingEnabled`, and `scrollDuration`.
+- **Breaking**: `onCreateEntity()` is now abstract and must be implemented by adapter subclasses.
+- New: Added `stickToActualWeek` and `app:stickToWeekInWeekView` for week-aligned scrolling in week view.
+- Changed: `showFirstDayOfWeekFirst` is deprecated. Use `stickToActualWeek` instead.
+- Changed: Week views with seven visible days now snap to full weeks by default.
+- Changed: Updated target SDK to 35 and compile SDK to 35.
+- Changed: Updated Kotlin to 2.0.21.
+- Changed: Updated AGP to 8.6.1, Gradle to 8.7, and library dependencies.
+- Changed: Added `namespace` to all Android modules for AGP 8 compatibility.
+- Fixed: WeekView no longer scrolls incorrectly in RTL mode.
+- Fixed: WeekView no longer snaps to the wrong date in week view.
+
 ## Version 5.3.2
 *(2021-06-14)*
 

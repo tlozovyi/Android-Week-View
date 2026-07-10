@@ -15,7 +15,7 @@ class DiffResultTest {
 
         val result = DiffResult.calculateDiff(
             existingEntities = existingEntities,
-            newEntities = newEntities,
+            newEntities = newEntities
         )
 
         assertThat(result.itemsToAddOrUpdate).isEmpty()
@@ -29,7 +29,7 @@ class DiffResultTest {
 
         val result = DiffResult.calculateDiff(
             existingEntities = existingEntities,
-            newEntities = newEntities,
+            newEntities = newEntities
         )
 
         assertThat(result.itemsToAddOrUpdate).containsExactlyElementsIn(newEntities)
@@ -45,7 +45,7 @@ class DiffResultTest {
 
         val result = DiffResult.calculateDiff(
             existingEntities = listOf(existingEntity),
-            newEntities = listOf(newEntity),
+            newEntities = listOf(newEntity)
         )
 
         assertThat(result.itemsToAddOrUpdate).containsExactly(newEntity)
@@ -62,7 +62,7 @@ class DiffResultTest {
 
         val result = DiffResult.calculateDiff(
             existingEntities = listOf(existingEntity),
-            newEntities = listOf(updatedEntity, newEntity),
+            newEntities = listOf(updatedEntity, newEntity)
         )
 
         assertThat(result.itemsToAddOrUpdate).containsExactly(newEntity, updatedEntity)
@@ -75,7 +75,7 @@ class DiffResultTest {
 
         val result = DiffResult.calculateDiff(
             existingEntities = listOf(entityToRemove),
-            newEntities = emptyList(),
+            newEntities = emptyList()
         )
 
         assertThat(result.itemsToAddOrUpdate).isEmpty()
@@ -89,7 +89,7 @@ class DiffResultTest {
 
         val result = DiffResult.calculateDiff(
             existingEntities = listOf(existingEntity),
-            newEntities = listOf(newEntity),
+            newEntities = listOf(newEntity)
         )
 
         assertThat(result.itemsToAddOrUpdate).containsExactly(newEntity)

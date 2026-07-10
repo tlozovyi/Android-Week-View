@@ -17,7 +17,7 @@ import kotlin.math.min
 internal data class DragState(
     val eventId: Long,
     val dragStartTime: Calendar,
-    val draggedEventStartTime: Calendar,
+    val draggedEventStartTime: Calendar
 )
 
 internal class ViewState {

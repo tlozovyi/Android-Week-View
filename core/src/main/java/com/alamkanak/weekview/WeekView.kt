@@ -64,7 +64,7 @@ class WeekView @JvmOverloads constructor(
         navigator = navigator,
         dragListener = { id -> adapter?.handleDragAndDrop(id) },
         eventsCacheProvider = eventsCacheProvider,
-        eventsProcessorProvider = { adapter?.eventsProcessor },
+        eventsProcessorProvider = { adapter?.eventsProcessor }
     )
 
     private val gestureHandler = WeekViewGestureHandler(
@@ -72,7 +72,7 @@ class WeekView @JvmOverloads constructor(
         viewState = viewState,
         touchHandler = touchHandler,
         navigator = navigator,
-        dragHandler = dragHandler,
+        dragHandler = dragHandler
     )
 
     private var accessibilityTouchHelper = WeekViewAccessibilityTouchHelper(
@@ -251,7 +251,7 @@ class WeekView @JvmOverloads constructor(
     @Deprecated(
         message = "Use stickToWeekInWeekView instead.",
         replaceWith = ReplaceWith(expression = "stickToWeekInWeekView"),
-        level = DeprecationLevel.ERROR,
+        level = DeprecationLevel.ERROR
     )
     @PublicApi
     var showFirstDayOfWeekFirst: Boolean
@@ -352,6 +352,7 @@ class WeekView @JvmOverloads constructor(
     var headerBottomShadowColor: Int
         @RequiresApi(api = 29)
         get() = viewState.headerBackgroundWithShadowPaint.shadowLayerColor
+
         @RequiresApi(api = 29)
         set(value) {
             val paint = viewState.headerBackgroundWithShadowPaint
@@ -366,6 +367,7 @@ class WeekView @JvmOverloads constructor(
     var headerBottomShadowRadius: Int
         @RequiresApi(api = 29)
         get() = viewState.headerBackgroundWithShadowPaint.shadowLayerRadius.roundToInt()
+
         @RequiresApi(api = 29)
         set(value) {
             val paint = viewState.headerBackgroundWithShadowPaint
@@ -1504,7 +1506,7 @@ class WeekView @JvmOverloads constructor(
             onDragAndDropFinished(
                 data = data,
                 newStartTime = match.startTime,
-                newEndTime = match.endTime,
+                newEndTime = match.endTime
             )
         }
 

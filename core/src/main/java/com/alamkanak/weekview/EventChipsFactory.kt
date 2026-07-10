@@ -41,7 +41,7 @@ internal class EventChipsFactory {
                     event = event,
                     index = index,
                     startTime = eventPart.startTime,
-                    endTime = eventPart.endTime,
+                    endTime = eventPart.endTime
                 )
             }
         }.flatten()

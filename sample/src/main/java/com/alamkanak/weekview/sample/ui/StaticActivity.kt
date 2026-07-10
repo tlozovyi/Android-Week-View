@@ -10,6 +10,7 @@ import com.alamkanak.weekview.sample.R
 import com.alamkanak.weekview.sample.data.model.CalendarEntity
 import com.alamkanak.weekview.sample.data.model.toWeekViewEntity
 import com.alamkanak.weekview.sample.databinding.ActivityStaticBinding
+import com.alamkanak.weekview.sample.util.applySystemBarInsets
 import com.alamkanak.weekview.sample.util.defaultDateTimeFormatter
 import com.alamkanak.weekview.sample.util.genericViewModel
 import com.alamkanak.weekview.sample.util.setupWithWeekView
@@ -40,6 +41,7 @@ class StaticActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        applySystemBarInsets(binding.root)
 
         binding.toolbarContainer.toolbar.setupWithWeekView(binding.weekView)
         binding.weekView.adapter = adapter

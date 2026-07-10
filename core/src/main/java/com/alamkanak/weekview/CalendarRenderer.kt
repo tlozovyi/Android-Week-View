@@ -101,7 +101,7 @@ private class SingleEventsUpdater(
                 eventLabels[eventChip.id] = textFitter.fitSingleEvent(
                     eventChip = eventChip,
                     availableWidth = availableWidth,
-                    availableHeight = availableHeight,
+                    availableHeight = availableHeight
                 )
                 eventChip.updateAvailableArea(availableWidth, availableHeight)
             }

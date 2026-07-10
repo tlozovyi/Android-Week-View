@@ -14,6 +14,7 @@ import com.alamkanak.weekview.sample.R
 import com.alamkanak.weekview.sample.data.model.CalendarEntity
 import com.alamkanak.weekview.sample.data.model.toWeekViewEntity
 import com.alamkanak.weekview.sample.databinding.FragmentWeekBinding
+import com.alamkanak.weekview.sample.util.applySystemBarInsets
 import com.alamkanak.weekview.sample.util.genericViewModel
 import com.alamkanak.weekview.sample.util.setupWithWeekView
 import com.alamkanak.weekview.sample.util.yearMonthsBetween
@@ -49,6 +50,8 @@ class WeekFragment : Fragment(R.layout.fragment_week) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        applySystemBarInsets(binding.root)
+
         binding.toolbarContainer.toolbar.setupWithWeekView(binding.weekView)
 
         val adapter = FragmentWeekViewAdapter(loadMoreHandler = viewModel::fetchEvents)
