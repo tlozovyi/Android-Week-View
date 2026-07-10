@@ -7,7 +7,8 @@ Changelog
 - **Breaking**: Removed deprecated `goToToday()`, `goToCurrentTime()`, `goToDate()`, and `goToHour()`. Use `scrollToDate()`, `scrollToTime()`, and `scrollToDateTime()` instead.
 - **Breaking**: Removed `WeekViewEvent`, `WeekViewDisplayable`, and `adapter.submit()`. Use `WeekViewEntity` and `adapter.submitList()` instead.
 - **Breaking**: Removed `DateTimeInterpreter`, `dateTimeInterpreter`, and `WeekView.enableEmojiProcessing()`.
-- **Breaking**: Removed unused scrolling properties `xScrollingSpeed`, `isVerticalFlingEnabled`, `isHorizontalFlingEnabled`, and `scrollDuration`.
+- **Breaking**: Removed scrolling properties `xScrollingSpeed`, `isVerticalFlingEnabled`, `isHorizontalFlingEnabled`, and `scrollDuration`.
+- **Breaking**: Removed `Adapter.onEventClick(data: T)`. Use `onEventClick(data: T, bounds: RectF)` instead.
 - **Breaking**: `onCreateEntity()` is now abstract and must be implemented by adapter subclasses.
 - New: Added `stickToActualWeek` and `app:stickToWeekInWeekView` for week-aligned scrolling in week view.
 - Changed: `showFirstDayOfWeekFirst` is deprecated. Use `stickToActualWeek` instead.

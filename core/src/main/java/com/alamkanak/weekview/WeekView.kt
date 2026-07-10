@@ -1466,13 +1466,6 @@ class WeekView @JvmOverloads constructor(
         abstract fun onCreateEntity(item: T): WeekViewEntity
 
         /**
-         * Returns the data of the [WeekViewEntity.Event] that the user clicked on.
-         *
-         * @param data The data of the [WeekViewEntity.Event]
-         */
-        open fun onEventClick(data: T) = Unit
-
-        /**
          * Returns the data of the [WeekViewEntity.Event] that the user clicked on as well as the
          * bounds of the [EventChip] in which it is displayed.
          *

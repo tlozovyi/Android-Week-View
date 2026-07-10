@@ -1,5 +1,6 @@
 package com.alamkanak.weekview.sample.ui
 
+import android.graphics.RectF
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alamkanak.weekview.WeekViewEntity
@@ -85,7 +86,7 @@ private class StaticActivityWeekViewAdapter(
 
     override fun onCreateEntity(item: CalendarEntity): WeekViewEntity = item.toWeekViewEntity()
 
-    override fun onEventClick(data: CalendarEntity) {
+    override fun onEventClick(data: CalendarEntity, bounds: RectF) {
         if (data is CalendarEntity.Event) {
             context.showToast("Clicked ${data.title}")
         }
