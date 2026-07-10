@@ -150,6 +150,17 @@ internal class EventChipDrawer(
         }
 
         withTranslation(x = horizontalOffset, y = bounds.top + verticalOffset) {
+            if (eventChip.event.isAllDay) {
+                val horizontalPadding = viewState.eventPaddingHorizontal.toFloat()
+                val clipWidth = bounds.width() - horizontalPadding * 2
+
+                if (viewState.isLtr) {
+                    clipRect(0f, -bounds.height(), clipWidth, bounds.height() * 2)
+                } else {
+                    clipRect(-clipWidth, -bounds.height(), 0f, bounds.height() * 2)
+                }
+            }
+
             draw(textLayout)
         }
     }
